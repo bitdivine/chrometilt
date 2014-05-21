@@ -41,10 +41,15 @@ limitations under the License.
 	<DIV id="message">Talk to me</DIV>
     <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
     <script type="text/javascript">
-      function iframe(url) {
+      var refresh;
+      function iframe(parameters) {
+          clearTimeout(refresh);
           var i = document.getElementById("i");
           i.setAttribute("style", "width:"+window.innerHeight+"px; height:"+window.innerWidth+"px;border:none;-webkit-transform-origin:0px 0px;-webkit-transform: matrix(0,1,-1,0,"+window.innerWidth+",0);position:absolute;top:0;left:0;");
-          i.setAttribute("src",url);
+          i.setAttribute("src", parameters.url);
+          if (parameters.refresh) {
+              setTimeout(iframe, parameters.refresh);
+          }
       }
       window.onload = function() {
         cast.receiver.logger.setLevelValue(0);
@@ -100,7 +105,7 @@ limitations under the License.
       // utility function to display the text message in the input field
       function displayText(text) {
         console.log(text);
-        iframe(text);
+        iframe(JSON.parse(text));
         //document.getElementById("message").innerHTML=text;
         window.castReceiverManager.setApplicationState(text);
       };
