@@ -49,7 +49,7 @@ limitations under the License.
           i.setAttribute("src", "");
           i.setAttribute("src", parameters.url);
           if (parameters.refresh) {
-              setTimeout(iframe, parameters.refresh);
+              setTimeout(iframe.bind(this,parameters), parameters.refresh);
           }
       }
       window.onload = function() {
