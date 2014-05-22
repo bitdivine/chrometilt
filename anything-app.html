@@ -45,7 +45,7 @@ limitations under the License.
       function iframe(parameters) {
           clearTimeout(refresh);
           var i = document.getElementById("i");
-          i.setAttribute("style", "width:"+window.innerHeight+"px; height:"+window.innerWidth+"px;border:none;-webkit-transform-origin:0px 0px;-webkit-transform: matrix(0,1,-1,0,"+window.innerWidth+",0);position:absolute;top:0;left:0;");
+          i.setAttribute("style", "width:"+window.innerHeight+"px; height:"+window.innerWidth+"px;border:none;-webkit-transform-origin:0px 0px;-webkit-transform: matrix(0,1,-1,0,"+window.innerWidth+",0);position:absolute;top:0;left:0;background-color:777;");
           i.setAttribute("src", "");
           i.setAttribute("src", parameters.url);
           if (parameters.refresh) {
