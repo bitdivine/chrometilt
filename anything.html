@@ -202,8 +202,8 @@ function transcribe(words) {
 	<tr>
 		<td>
 			<form method="get" action="JavaScript:update();">
-				<input id="input-url" class="border" type="text" size="30" onwebkitspeechchange="transcribe(this.value)" x-webkit-speech/>
-				<input id="input-refresh" class="border" type="text" size="7" placeholder="refresh (hh:mm:ss)" />
+				<input id="input-url" class="border" type="text" size="30" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" onwebkitspeechchange="transcribe(this.value)" x-webkit-speech/>
+				<input id="input-refresh" class="border" type="text" size="7" onkeydown="if (event.keyCode == 13) { this.form.submit(); return false; }" placeholder="refresh (hh:mm:ss)" />
 			</form>
 		</td>
 	</tr>
