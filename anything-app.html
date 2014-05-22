@@ -106,7 +106,12 @@ limitations under the License.
       // utility function to display the text message in the input field
       function displayText(text) {
         console.log(text);
-        iframe(JSON.parse(text));
+        var parameters = JSON.parse(text);
+        if ((typeof(parameters)!=='undefined') && (typeof(parameters.url) !== 'undefined')) {
+          iframe(JSON.parse(text));
+        } else {
+          console.log("Doesn't seem to be well formed.  Nothing doing.");
+        }
         //document.getElementById("message").innerHTML=text;
         window.castReceiverManager.setApplicationState(text);
       };
