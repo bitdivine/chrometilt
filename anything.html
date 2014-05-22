@@ -153,6 +153,7 @@ function stopApp() {
  * @param {string} message A message string
  */
 function sendMessage(message) {
+  console.log("sending", message);
   if (session!=null) {
     session.sendMessage(namespace, message, onSuccess.bind(this, "Message sent: " + message), onError);
   }
